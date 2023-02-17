@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Prospect List</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+   </head>
+   <body>
+      <h1>Prospect List</h1>
+      <a href="addProspect">Add Prospect</a>
+      <br/><br/>
+      <div>
+         <table border="1">
+            <tr>
+               <th>Name</th>
+               <th>Siret</th>
+               <th>Address</th>
+               <th>Zip</th>
+               <th>City</th>
+               <th>Id</th>
+            </tr>
+            <tr th:each ="prospect : ${prospects}">
+               <td th:utext="${prospect.name}">...</td>
+               <td th:utext="${prospect.siret}">...</td>
+               <td th:utext="${prospect.address}">...</td>
+               <td th:utext="${prospect.zip}">...</td>
+               <td th:utext="${prospect.city}">...</td>
+               <td th:utext="${prospect.id}">...</td>
+			   <td>
+                	<a th:href="@{/edit/{id}(id=${prospect.id})}" class="btn btn-danger">Update</a>
+               </td>
+			   <td>
+               		<a th:href="@{/delete/{id}(id=${prospect.id})}" class="btn btn-danger">Delete</a>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

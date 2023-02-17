@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Edit Prospect</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+   </head>
+   <body>
+      <h1>Edit a Prospect:</h1>
+      
+	  <form th:action="@{/updateProspect}"
+         th:object="${updateProspect}" method="POST">
+         Name:
+         <input type="text" th:field="*{name}" />    
+         <br/>
+         Siret:
+         <input type="text" th:field="*{siret}" />     
+         <br/>
+         Address:
+         <input type="text" th:field="*{address}" />  
+         <br/>
+         Zip:
+         <input type="text" th:field="*{zip}" />  
+         <br/>
+         City:
+         <input type="text" th:field="*{city}" />
+         <br/>  
+         <input type="submit" value="Create" />
+      </form>
+	</body>
+</html>
